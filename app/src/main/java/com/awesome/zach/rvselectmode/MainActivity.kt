@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_basic.*
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_basic.*
 
 class MainActivity : AppCompatActivity(), SelectableViewHolder.OnItemSelectedListener {
 
@@ -26,13 +26,13 @@ class MainActivity : AppCompatActivity(), SelectableViewHolder.OnItemSelectedLis
         adapter = SelectableAdapter(this, selectableItems, true)
         selection_list.adapter = adapter
 
-        fab.setOnClickListener {
-            if (actionModeEnabled) {
-                finishActionMode()
-            } else {
-                startActionMode()
-            }
-        }
+//        fab.setOnClickListener {
+//            if (actionModeEnabled) {
+//                finishActionMode()
+//            } else {
+//                startActionMode()
+//            }
+//        }
     }
 
     private fun startActionMode() {
@@ -60,15 +60,15 @@ class MainActivity : AppCompatActivity(), SelectableViewHolder.OnItemSelectedLis
 
     override fun onItemSelected(item: SelectableItem) {
         val selectedItems = adapter.getSelectedItems()
-//        if (selectedItems.isNotEmpty()) {
-//            if (!actionModeEnabled) {
-//                mActionModeCallback.startActionMode(view = toolbar, menuResId = R.menu.menu_action_mode, title = "Title", subtitle = "Subtitle")
-//            }
-//        } else if (selectedItems.isEmpty()) {
-//            if (actionModeEnabled) {
-//                mActionModeCallback.finishActionMode()
-//            }
-//        }
+        if (selectedItems.isNotEmpty()) {
+            if (!actionModeEnabled) {
+                startActionMode()
+            }
+        } else if (selectedItems.isEmpty()) {
+            if (actionModeEnabled) {
+                finishActionMode()
+            }
+        }
 
         Snackbar.make(
             selection_list,

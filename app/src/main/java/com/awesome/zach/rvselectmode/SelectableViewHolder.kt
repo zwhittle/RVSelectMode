@@ -22,7 +22,7 @@ class SelectableViewHolder(var view: View, var listener: OnItemSelectedListener)
     fun bind(item: SelectableItem) {
         textView = view.findViewById(R.id.checked_text_item)
         textView.text = item.name
-        textView.setOnClickListener {view ->
+        textView.setOnClickListener {
             if (mItem.isSelected && itemViewType == MULTI_SELECTION) {
                 setChecked(false)
             } else {
