@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RVSelectMode</string>
+    <string name="title_activity_basic">BasicActivity</string>
+    <string name="edit">Edit</string>
+    <string name="complete">Complete</string>
+    <string name="delete">Delete</string>
 </resources>
